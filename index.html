@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 日本家族旅行行程表</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #ffffff;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        h1 { margin: 0; color: #1a1a1a; font-size: 1.5rem; }
+        .subtitle { color: #666; font-size: 0.9rem; margin-top: 5px; }
+        
+        /* 分頁導覽列設計 */
+        .tabs {
+            display: flex;
+            overflow-x: auto;
+            background-color: #ffffff;
+            border-bottom: 2px solid #eeeeee;
+            padding: 0 10px;
+            /* 隱藏捲軸但保持可滑動 */
+            scrollbar-width: none; 
+        }
+        .tabs::-webkit-scrollbar { display: none; }
+        
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 12px 15px;
+            font-size: 1rem;
+            color: #777777;
+            cursor: pointer;
+            white-space: nowrap;
+            font-weight: bold;
+            border-bottom: 3px solid transparent;
+        }
+        .tab-btn.active {
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+        }
+
+        /* 行程內容區塊 */
+        .tab-content {
+            display: none;
+            padding: 20px 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hotel-tag {
+            display: inline-block;
+            font-size: 0.85rem;
+            background-color: #e9ecef;
+            padding: 5px 10px;
+            border-radius: 20px;
+            color: #495057;
+            margin-bottom: 15px;
+        }
+        
+        .timeline {
+            border-left: 2px solid #0056b3;
+            padding-left: 15px;
+            margin-left: 5px;
+        }
+        .event { margin-bottom: 20px; position: relative; }
+        .event::before {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #0056b3;
+            border-radius: 50%;
+            left: -21px;
+            top: 5px;
+        }
+        .time { font-weight: bold; color: #d9534f; font-size: 0.95rem; margin-bottom: 3px;}
+        .desc { font-size: 1.05rem; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>✈️ 2026 輕井澤 & 東京家族旅行</h1>
+        <div class="subtitle">左右滑動日期，點擊切換行程</div>
+    </div>
+
+    <!-- 橫向滑動的分頁按鈕 -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="openTab(event, 'day1')">7/4 (六)</button>
+        <button class="tab-btn" onclick="openTab(event, 'day2')">7/5 (日)</button>
+        <button class="tab-btn" onclick="openTab(event, 'day3')">7/6 (一)</button>
+        <button class="tab-btn" onclick="openTab(event, 'day4')">7/7 (二)</button>
+        <button class="tab-btn" onclick="openTab(event, 'day5')">7/8 (三)</button>
+        <button class="tab-btn" onclick="openTab(event, 'day6')">7/9 (四)</button>
+        <button class="tab-btn" onclick="openTab(event, 'day7')">7/10 (五)</button>
+        <button class="tab-btn" onclick="openTab(event, 'day8')">7/11 (六)</button>
+    </div>
+
+    <!-- 每日行程內容 -->
+    
+    <!-- Day 1 -->
+    <div id="day1" class="tab-content active">
+        <div class="hotel-tag">🏨 住宿：輕井澤王子飯店</div>
+        <div class="timeline">
+            <div class="event">
+                <div class="time">09:00 - 13:10</div>
+                <div class="desc">搭乘 CI220 抵達羽田機場</div>
+            </div>
+            <div class="event">
+                <div class="time">15:24 - 16:26</div>
+                <div class="desc">北陸新幹線前往輕井澤 (Car7 10A/10B, Car8)</div>
+            </div>
+            <div class="event">
+                <div class="time">傍晚</div>
+                <div class="desc">飯店 Check-in，至 Prince Shopping Plaza 用晚餐與逛街</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Day 2 -->
+    <div id="day2" class="tab-content">
+        <div class="hotel-tag">🏨 住宿：輕井澤王子飯店</div>
+        <div class="timeline">
+            <div class="event">
+                <div class="time">全日</div>
+                <div class="desc">租借電動腳踏車，全家輕鬆漫遊</div>
+            </div>
+            <div class="event">
+                <div class="time">上午景點</div>
+                <div class="desc">雲場池、舊輕井澤銀座通老街</div>
+            </div>
+            <div class="event">
+                <div class="time">下午景點</div>
+                <div class="desc">中輕井澤高原教堂、石之教堂</div>
+            </div>
+            <div class="event">
+                <div class="time">晚餐</div>
+                <div class="desc">村民食堂 (建議提早候位)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Day 3 -->
+    <div id="day3" class="tab-content">
+        <div class="hotel-tag">🏨 住宿：輕井澤王子飯店</div>
+        <div class="timeline">
+            <div class="event">
+                <div class="time">全日</div>
+                <div class="desc">租賃 7 人座汽車自駕一日遊</div>
+            </div>
+            <div class="event">
+                <div class="time">上午</div>
+                <div class="desc">白絲瀑布 (森林散步避暑)</div>
+            </div>
+            <div class="event">
+                <div class="time">下午</div>
+                <div class="desc">輕井澤玩具王國 (孩子們的放電天堂)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Day 4 -->
+    <div id="day4" class="tab-content">
+        <div class="hotel-tag">🏨 住宿：東京五反田 Airbnb</div>
+        <div class="timeline">
+            <div class="event">
+                <div class="time">上午</div>
+                <div class="desc">搭乘新幹線回東京，前往五反田 Airbnb 寄放行李</div>
+            </div>
+            <div class="event">
+                <div class="time">下午</div>
+                <div class="desc">Maxell Aqua Park 品川水族館 (欣賞華麗海豚秀)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Day 5 -->
+    <div id="day5" class="tab-content">
+        <div class="hotel-tag">🏨 住宿：東京五反田 Airbnb</div>
+        <div class="timeline">
+            <div class="event">
+                <div class="time">上午</div>
+                <div class="desc">築地市場吃海鮮早餐 (從五反田搭都營淺草線)</div>
+            </div>
+            <div class="event">
+                <div class="time">下午</div>
+                <div class="desc">teamLab Planets 豐洲 (室內光影與踩水體驗)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Day 6 -->
+    <div id="day6" class="tab-content">
+        <div class="hotel-tag">🏨 住宿：東京五反田 Airbnb</div>
+        <div class="timeline">
+            <div class="event">
+                <div class="time">全日</div>
+                <div class="desc">三麗鷗樂園 Sanrio Puroland (全室內避暑樂園)</div>
+            </div>
+            <div class="event">
+                <div class="time">傍晚</div>
+                <div class="desc">返回新宿或澀谷周邊享用晚餐</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Day 7 -->
+    <div id="day7" class="tab-content">
+        <div class="hotel-tag">🏨 住宿：東京五反田 Airbnb</div>
+        <div class="timeline">
+            <div class="event">
+                <div class="time">上午</div>
+                <div class="desc">淺草寺 & 仲見世通 (五反田一車直達)</div>
+            </div>
+            <div class="event">
+                <div class="time">下午</div>
+                <div class="desc">晴空塔商場 或 上野阿美橫丁 (最後血拚)</div>
+            </div>
+            <div class="event">
+                <div class="time">傍晚</div>
+                <div class="desc">SHIBUYA SKY (觀賞澀谷高空夕陽與夜景)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Day 8 -->
+    <div id="day8" class="tab-content">
+        <div class="hotel-tag">✈️ 航班：CI221 (羽田出發)</div>
+        <div class="timeline">
+            <div class="event">
+                <div class="time">上午</div>
+                <div class="desc">五反田周邊悠閒早餐與最後行李打包</div>
+            </div>
+            <div class="event">
+                <div class="time">12:00</div>
+                <div class="desc">出發前往羽田機場 (品川轉搭京急線直達)</div>
+            </div>
+            <div class="event">
+                <div class="time">14:30 - 16:55</div>
+                <div class="desc">搭乘 CI221 班機平安返家</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 切換分頁的 JavaScript -->
+    <script>
+        function openTab(evt, dayName) {
+            var i, tabcontent, tablinks;
+            
+            // 隱藏所有行程內容
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].className = tabcontent[i].className.replace(" active", "");
+            }
+            
+            // 移除所有按鈕的 active 狀態
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            
+            // 顯示被點擊的行程，並將該按鈕設為 active
+            document.getElementById(dayName).style.display = "block";
+            document.getElementById(dayName).className += " active";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>
